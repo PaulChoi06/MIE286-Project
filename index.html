@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Sequence</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="trial-timer hidden" id="trialTimer" aria-live="polite" aria-label="Recall phase elapsed time">0.0 s</div>
+  <div class="app">
+    <header class="header">
+      <h1>Memory Sequence</h1>
+      <p class="subtitle">Watch 8 letters, then type them back (A–Z and a–z only).</p>
+      <p class="trial-badge hidden" id="trialBadge" aria-live="polite"></p>
+    </header>
+
+    <section class="panel" id="welcome">
+      <p class="prose">You will first complete <strong>two practice rounds</strong>—one in each feedback mode—so you can learn how the sounds work. After practice, you can start the real trials.</p>
+      <button type="button" class="btn btn-primary" id="btnBeginPractice">Begin practice</button>
+    </section>
+
+    <section class="panel hidden" id="practiceIntro">
+      <h2 class="panel-title" id="practiceIntroTitle">Practice</h2>
+      <div class="prose explain-box" id="practiceIntroExplain"></div>
+      <button type="button" class="btn btn-primary" id="btnStartPracticeRound">Start this practice round</button>
+    </section>
+
+    <section class="panel hidden" id="practiceMid">
+      <p class="prose" id="practiceMidMsg"></p>
+      <button type="button" class="btn btn-primary" id="btnContinuePractice2">Continue</button>
+    </section>
+
+    <section class="panel hidden" id="practiceResult">
+      <h2 class="panel-title">Practice results</h2>
+      <div class="results-list" id="practiceResultsList"></div>
+      <button type="button" class="btn btn-primary" id="btnToRealSetup">Continue to real trials</button>
+    </section>
+
+    <section class="setup panel hidden" id="setup">
+      <p class="setup-hint">Four real trials: two in one mode, then two in the other. Mode order is chosen at random when you start.</p>
+      <button type="button" class="btn btn-primary" id="btnStart">Start real trials</button>
+    </section>
+
+    <section class="play hidden" id="play" aria-live="polite">
+      <div class="sequence-stage" id="sequenceStage">
+        <span class="sequence-char" id="sequenceChar" aria-hidden="true"></span>
+      </div>
+      <div class="input-panel hidden" id="inputPanel">
+        <p class="prompt">Type the sequence:</p>
+        <div class="typed-display" id="typedDisplay" aria-label="Your input"></div>
+        <p class="position" id="positionLabel">Position: 0 / 8</p>
+      </div>
+      <div class="trial-advance hidden" id="trialAdvance">
+        <p class="trial-advance-msg" id="trialAdvanceMsg"></p>
+        <button type="button" class="btn btn-primary" id="btnNextTrial">Continue</button>
+      </div>
+    </section>
+
+    <section class="result panel hidden" id="finalResult">
+      <h2 class="results-title">Real trial results</h2>
+      <p class="download-note" id="downloadNote">A data file has been downloaded for your analysis. Use “Download log again” if your browser blocked it.</p>
+      <div class="results-list" id="resultsList"></div>
+      <div class="summary-box" id="realSummary" aria-label="Summary across real trials"></div>
+      <button type="button" class="btn btn-secondary" id="btnDownloadAgain">Download log again</button>
+      <button type="button" class="btn btn-secondary" id="btnAgain">New session</button>
+    </section>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
